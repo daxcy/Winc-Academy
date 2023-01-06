@@ -18,12 +18,12 @@ print(report)
 player = 'Berry van Aerle'
 
 # Set first name
-x = player.find('Berry')
-first_name = player[x:5]
+end_of_first_name = player.find(' ')
+first_name = player[:end_of_first_name]
 print(first_name)
 
 # Set last name
-last_name= player[6:]
+last_name= player[end_of_first_name + 1:] # Reusing end_of_first_name as we know where the space ends and adding +1 for the start of the last name
 last_name_len = len(last_name)
 print(last_name)
 print(last_name_len)
@@ -34,11 +34,9 @@ print(name_short)
 
 # Create chant without a space at the end
 chant = (first_name + '! ' ) * len(first_name)
-x = (len(chant)) - 1
-chant = chant[:x]
-print(chant[:x])
+chant = chant[:-1]
+print(chant)
 
 # Double check if space 
-x = (len(chant)) - 1
-good_chant = (chant[x] != ' ')
+good_chant = (chant[-1] != ' ')
 print(good_chant)
